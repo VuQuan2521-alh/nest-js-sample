@@ -16,6 +16,12 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         database: config.get<string>('POSTGRES_DB'),
         autoLoadEntities: true,
         synchronize: true,
+        ssl: true,
+        extra: {
+          ssl: {
+            rejectUnauthorized: false,
+          },
+        },
       }),
     }),
   ],
